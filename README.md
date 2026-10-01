@@ -71,19 +71,19 @@ Model names in the examples (`gpt-4o-mini`, `claude-sonnet-4-5`) must match what
 
 ## What a blocked request looks like
 
-A request that contains a prompt-injection attempt is not forwarded to the provider. When this repo was last tested, the live API returned HTTP `400` with an OpenAI-shaped error:
+A request that contains a prompt-injection attempt is not forwarded to the provider. AiDren returns HTTP `400` with an OpenAI-shaped error (your SDK raises its normal `BadRequestError`):
 
 ```json
 {
   "error": {
-    "message": "Request blocked by AiDren Proxy: ... content flagged as a potential prompt injection attempt.",
+    "message": "Request blocked by AiDren Proxy: content flagged as a potential prompt injection attempt.",
     "type": "proxy_blocked",
     "code": "injection_detected"
   }
 }
 ```
 
-The [API reference](https://aidren.co.uk/docs.html) describes a `403` with `type: "blocked_by_aidren"`. [`blocked-request/blocked.py`](blocked-request/blocked.py) accepts both shapes, so check the error `type` rather than relying on one status code. Every decision appears on your Events page with a reason and confidence score. Keys can also run in **monitor mode**, which logs what would be blocked and forwards the request anyway.
+The `code` field says why: `injection_detected` (prompt injection), `sensitive_data_detected` (personal data or secrets in the request, or in the response when output scanning is set to block) or `policy_blocked` (your custom policy). Check `error.type === "proxy_blocked"` to tell an AiDren block from an ordinary bad request. On the Anthropic endpoint the body is Anthropic-shaped (`type: "error"`, `error.type: "invalid_request_error"`) with the same `Request blocked by AiDren Proxy: ...` message. [`blocked-request/blocked.py`](blocked-request/blocked.py) shows the handling. Every decision appears on your Events page with a reason and confidence score. Keys can also run in **monitor mode**, which logs what would be blocked and forwards the request anyway.
 
 ## Honest limits
 
