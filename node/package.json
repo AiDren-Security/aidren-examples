@@ -1,0 +1,16 @@
+{
+  "name": "aidren-examples-node",
+  "private": true,
+  "type": "module",
+  "description": "Node examples for routing LLM traffic through AiDren",
+  "license": "MIT",
+  "dependencies": {
+    "@ai-sdk/anthropic": "^4.0.71",
+    "@ai-sdk/openai": "^4.0.83",
+    "@anthropic-ai/sdk": "^0.131.0",
+    "@langchain/core": "^1.2.14",
+    "@langchain/openai": "^1.6.2",
+    "ai": "^7.0.126",
+    "openai": "^7.25.0"
+  }
+}
