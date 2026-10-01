@@ -1,5 +1,7 @@
 # aidren-examples
 
+![check](https://github.com/AiDren-Security/aidren-examples/actions/workflows/check.yml/badge.svg)
+
 AiDren is a drop-in security proxy for LLM applications: it screens prompts for injection, scans responses for leaks, and scans model files for malicious code.
 
 These are small, working quickstarts for sending your LLM traffic through [AiDren](https://aidren.co.uk). You keep the SDK you already use. You change the **base URL** to `api.aidren.co.uk` and use an **AiDren proxy key** in place of your provider key. Request and response bodies are unchanged.
