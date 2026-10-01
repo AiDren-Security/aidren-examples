@@ -56,6 +56,7 @@ The Vercel AI SDK's Anthropic provider is the exception: its base URL already en
 | [`curl/chat.sh`](curl/chat.sh) | `bash curl/chat.sh` | Plain HTTP |
 | [`blocked-request/blocked.py`](blocked-request/blocked.py) | `python blocked-request/blocked.py` | Sends an injection and handles the block |
 | [`rag-indirect-injection/`](rag-indirect-injection/) | `python rag-indirect-injection/rag_indirect_injection.py` | Injection hidden in a retrieved document (indirect injection) |
+| [`agent-tool-hijack/`](agent-tool-hijack/) | `python agent-tool-hijack/agent_tool_hijack.py` | Tool-calling agent hit by an injection, plus an argument allow-list |
 
 Setup:
 
