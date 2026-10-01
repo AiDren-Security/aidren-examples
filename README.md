@@ -55,6 +55,7 @@ The Vercel AI SDK's Anthropic provider is the exception: its base URL already en
 | [`node/langchain-openai.mjs`](node/langchain-openai.mjs) | `node node/langchain-openai.mjs` | `@langchain/openai` |
 | [`curl/chat.sh`](curl/chat.sh) | `bash curl/chat.sh` | Plain HTTP |
 | [`blocked-request/blocked.py`](blocked-request/blocked.py) | `python blocked-request/blocked.py` | Sends an injection and handles the block |
+| [`rag-indirect-injection/`](rag-indirect-injection/) | `python rag-indirect-injection/rag_indirect_injection.py` | Injection hidden in a retrieved document (indirect injection) |
 
 Setup:
 
